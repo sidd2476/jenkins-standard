@@ -1,5 +1,6 @@
 def call() {  
-  node {
+  pipeline {
+    stages{
     stage('Verify Workspace'){
       echo "${env.JENKINS_HOME}"
       Map pipelineConfig = readYaml(file: "${WORKSPACE}/Jenkinsfile.yaml")
@@ -7,5 +8,6 @@ def call() {
     stage('Build'){
       println "Building: ${pipelineConfig.project_name}"
     }
+  }
   }
 }  
