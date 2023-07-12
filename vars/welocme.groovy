@@ -1,7 +1,7 @@
 def call() {  
   node {
     stage('Verify Workspace'){
-      echo "${env.GIT_LOCAL_BRANCH}"
+      echo "${env.JENKINS_HOME}"
       Map pipelineConfig = readYaml(file: "${WORKSPACE}/Jenkinsfile.yaml")
     }
     stage('Build'){
