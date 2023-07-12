@@ -1,5 +1,5 @@
 def call() {
-  echo "${env.WORKSPACE}"
+  echo "${WORKSPACE}"
   Map pipelineConfig = readYaml(file: '${env.WORKSPACE}/Jenkinsfile.yaml')
   node {
     stage('Build'){
