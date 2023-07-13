@@ -7,8 +7,9 @@ def call() {
       script{
       sh """
       git clone $GIT_URL
+      cd terraform-hv
       echo "${env.JENKINS_HOME}"
-      Map pipelineConfig = readYaml(file: "${WORKSPACE}/Jenkinsfile.yaml")
+      Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
       """
       }
     }
