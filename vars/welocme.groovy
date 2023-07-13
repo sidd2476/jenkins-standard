@@ -1,11 +1,12 @@
-def call() {  
+def call() { 
+  Map pipelineConfig = [:]
   pipeline {
     agent any
     stages{
     stage('Verify Workspace'){
       steps{
       script{      
-      Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
+      pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
       }
     }
     }
