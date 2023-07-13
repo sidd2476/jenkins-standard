@@ -6,6 +6,7 @@ def call() {
       steps{
       script{
       sh """
+      pwd
       git clone $GIT_URL
       pwd
       echo "${env.JENKINS_HOME}"
