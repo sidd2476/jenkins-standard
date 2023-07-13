@@ -3,6 +3,7 @@ def call() {
     agent any
     stages{
     stage('Verify Workspace'){
+      steps{
       script{
       sh """
       git clone $GIT_URL
@@ -11,8 +12,13 @@ def call() {
       """
       }
     }
+    }
     stage('Build'){
-      println "Building: ${pipelineConfig.project_name}"
+      steps{
+        script{
+      echo "Building: ${pipelineConfig.project_name}"
+        }
+      }
     }
   }
   }
