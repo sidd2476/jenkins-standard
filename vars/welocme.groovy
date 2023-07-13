@@ -7,7 +7,7 @@ def call() {
       script{
       sh """
       pwd
-      Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
+      // Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
       """
       }
     }
