@@ -4,11 +4,8 @@ def call() {
     stages{
     stage('Verify Workspace'){
       steps{
-      script{
-      sh """
-      pwd
-      // Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
-      """
+      script{      
+      Map pipelineConfig = readYaml(file: "Jenkinsfile.yaml")
       }
     }
     }
