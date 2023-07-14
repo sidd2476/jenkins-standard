@@ -21,7 +21,7 @@ def call() {
       steps{
         script{
           env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
-          sh """
+          sh '''
           if [[ $GIT_COMMIT_MSG == *"bump_minor"* ]]; then
             export CI_TAG_INCRMENT_KEY="preminor"
           elif [[ $GIT_COMMIT_MSG == *"bump_major"* ]]; then
@@ -72,7 +72,7 @@ def call() {
           export TAG=${SEMVER_PREFIX:-v}$(semver $CURRENT_TAG -i ${CI_TAG_INCRMENT_KEY} --preid ${CI_TAG_KEYWORD:-feature})
           git tag -a $TAG -m "version $TAG"
           git push --tags ${GIT_URL}
-          """
+          '''
         }
       }
     }
