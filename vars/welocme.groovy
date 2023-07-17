@@ -36,8 +36,6 @@ def call() {
           export INITTAG=$(git describe --abbrev=0 --tags)||true
           export INITTAGSEMVER=$(semver INITTAG)
           export INITVERSION=$(semver ${INITTAGSEMVER:-"0.0.0"})
-          // echo $CI_MERGE_REQUEST_SOURCE_PROJECT_URL
-          // git checkout $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME
           export fullTag=$(git for-each-ref refs/tags --sort=-creatordate --format='%(refname)'|grep feature |head -1 )||true
           export GIT_TAG_FEATURE=${fullTag##*/}||true
           export GIT_TAG_FEATURE_SEMVER=$(semver -i ${GIT_TAG_FEATURE:-$INITVERSION})
