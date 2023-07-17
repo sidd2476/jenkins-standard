@@ -58,7 +58,7 @@ def call() {
           echo "CURRENT_TAG=$CURRENT_TAG"
           export CURRENT_TAG_SEMVER=$(semver -i ${CURRENT_TAG:-$INITVERSION})
           echo "CURRENT_TAG_SEMVER=$CURRENT_TAG_SEMVER"
-          PRD_VS_CURR=$(pysemver compare $PRD_TAG_SEMVER $CURRENT_TAG_SEMVER  2>&1)
+          PRD_VS_CURR=$(sudo pysemver compare $PRD_TAG_SEMVER $CURRENT_TAG_SEMVER  2>&1)
           echo "PRD_VS_CURR=$PRD_VS_CURR"
     
           if (( $PRD_VS_CURR > -1 )); then
