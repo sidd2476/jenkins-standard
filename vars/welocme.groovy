@@ -35,7 +35,7 @@ def call() {
           fi
           
           export INITTAG=$(git describe --abbrev=0 --tags)||true
-          export INITTAGSEMVER=$(npx semver INITTAG)
+          export INITTAGSEMVER=$(/bin/bash npx semver INITTAG)
           export INITVERSION=$(npx semver ${INITTAGSEMVER:-"0.0.0"})
           export fullTag=$(git for-each-ref refs/tags --sort=-creatordate --format='%(refname)'|grep feature |head -1 )||true
           export GIT_TAG_FEATURE=${fullTag##*/}||true
