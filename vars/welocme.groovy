@@ -22,7 +22,7 @@ def call() {
         script{
           env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
           sh '''
-          bash
+          /bin/bash
           echo $GIT_COMMIT_MSG
           if [[ $GIT_COMMIT_MSG == *"bump_minor"* ]]; then
             export CI_TAG_INCRMENT_KEY="preminor"
