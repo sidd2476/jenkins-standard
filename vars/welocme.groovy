@@ -22,6 +22,11 @@ def call() {
         script{
           env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
           sh '''
+          git clone https://github.com/sidd2476/helm-test.git
+          cd helm-test
+          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
+    chmod +x /usr/bin/yq
+          yq '.global.saas' imageVersion.yaml
           /bin/bash
           pwd
           echo $GIT_COMMIT_MSG
