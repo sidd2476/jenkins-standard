@@ -26,7 +26,7 @@ def call() {
           pwd
           ls
           cd helm-test
-          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
+          /opt/homebrew/bin/wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
     chmod +x /usr/bin/yq
           yq '.global.saas' imageVersion.yaml
           /bin/bash
