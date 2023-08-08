@@ -23,7 +23,8 @@ def call() {
           env.GIT_COMMIT_MSG = sh (script: 'git log -1 --pretty=%B ${GIT_COMMIT}', returnStdout: true).trim()
           sh '''
           git clone https://sidd2476:${pat}@github.com/sidd2476/terraform-hv.git
-          cd helm-test
+          pwd
+          ls
           wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
     chmod +x /usr/bin/yq
           yq '.global.saas' imageVersion.yaml
